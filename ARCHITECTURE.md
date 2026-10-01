@@ -26,11 +26,15 @@ Thèmes vus :
 Réussites :
 Erreurs récurrentes :
 Difficultés :
+Exercice de vérification et résultat :
+Décision (validé / à revoir) :
 Niveau estimé :
 Prochaine étape :
 ```
 
 ## Règles transverses
+
+- **Validation par l'exercice** : un prof valide ou non l'apprentissage toujours par un exercice de vérification, sans solution donnée. Pas d'exercice réussi, pas de validation. Le compte rendu indique l'exercice, le résultat et la décision (validé / à revoir), et le bot Profil ne fait monter un niveau que sur cette base.
 
 - Ne jamais inventer un niveau, un résultat ou une preuve.
 - Les profs ne donnent pas la solution d'un exercice en cours : ils guident.

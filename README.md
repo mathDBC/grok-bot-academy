@@ -29,8 +29,9 @@ flowchart LR
 
 1. **Première interaction** : le bot Profil pose des questions, un domaine à la fois, et attribue un niveau de départ.
 2. **Séance** : le prof lit le profil, propose un objectif, une explication courte, des exercices, une correction, un point à retenir.
-3. **Compte rendu** : à la fin, le prof envoie au bot Profil un résumé court (thèmes vus, réussites, erreurs récurrentes, difficultés, niveau estimé, prochaine étape).
-4. **Mise à jour** : le bot Profil valide les changements de niveau et réécrit le profil. Lui seul écrit dans le profil.
+3. **Vérification par un exercice** : chaque séance se termine par un exercice sans aide. Son résultat valide ou non l'apprentissage ; jamais de validation sur une simple explication.
+4. **Compte rendu** : le prof envoie au bot Profil un résumé court (thèmes vus, exercice et résultat, décision validé / à revoir, erreurs récurrentes, difficultés, niveau estimé, prochaine étape).
+5. **Mise à jour** : le bot Profil valide les changements de niveau et réécrit le profil. Lui seul écrit dans le profil.
 
 ## Contenu du dépôt
 
@@ -56,6 +57,7 @@ permet pas, remplace l'envoi du compte rendu par l'écriture d'un fichier `compt
 ## Choix importants
 
 - **Un seul écrivain** pour le profil, pour éviter les contradictions.
+- **Validation par l'exercice** : un niveau ne monte que sur un exercice de vérification réussi.
 - **Aucune invention** : un niveau ou un résultat n'existe que s'il vient d'une réponse ou d'un compte rendu réel.
 - **Modèles gratuits d'abord** : le concept est pensé pour tourner sur des quotas gratuits.
 - **Cybersécurité défensive** : le prof de cybersécurité n'enseigne la pratique offensive que sur des environnements légaux (labs, CTF, machines de test). Jamais de scan ou d'attaque de systèmes tiers.
