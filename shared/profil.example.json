@@ -2,10 +2,10 @@
   "version": 1,
   "updated": null,
   "domaines": {
-    "maths": { "niveau": null, "preuves": [] },
-    "linux": { "niveau": null, "preuves": [] },
-    "cybersecurite": { "niveau": null, "preuves": [] },
-    "langues": { "niveau": null, "langues": {}, "preuves": [] }
+    "maths": { "niveau": null, "statut": null, "preuves": [] },
+    "linux": { "niveau": null, "statut": null, "preuves": [] },
+    "cybersecurite": { "niveau": null, "statut": null, "preuves": [] },
+    "langues": { "niveau": null, "statut": null, "langues": {}, "preuves": [] }
   },
   "historique": []
 }

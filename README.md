@@ -36,8 +36,10 @@ flowchart LR
 ## Contenu du dépôt
 
 - `ARCHITECTURE.md` : rôles, règles et choix de conception.
-- `prompts/` : les prompts des 5 bots (Profil, Mathbot, Tuxbot, Secbot, Langbot), génériques.
-- `shared/profil.example.json` et `shared/profil.example.md` : format du profil partagé.
+- `prompts/` : les prompts des 5 bots (Profil, Mathbot, Tuxbot, Secbot, Langbot), génériques, plus celui du Builder Bot.
+- `bots/` : un modèle partageable par bot (`PROMPT.md`, skills rôle et démarrage, `README.md` d'installation), dont le **Builder Bot** (optionnel) qui génère ton propre prof.
+- `examples/guitarbot/` : un prof de guitare généré en simulation par le Builder Bot.
+- `shared/` : format du profil partagé (`profil.example.json`, `profil.example.md`) et dossier `comptes-rendus/` avec un exemple de compte rendu.
 - `CONTRIBUTING.md` : comment proposer une amélioration.
 
 ## Le monter chez toi
@@ -45,14 +47,18 @@ flowchart LR
 Le concept est indépendant de la plateforme : il suffit de pouvoir faire tourner plusieurs
 agents LLM qui partagent un dossier et peuvent s'envoyer des messages.
 
-1. Crée 5 agents, un par fichier de `prompts/`, avec le prompt comme consigne.
-2. Mets un dossier partagé lisible par tous (par exemple `skillverse/`), avec une copie des fichiers de `shared/`.
-3. Donne au bot Profil seul le droit d'écrire dans `profil.md` et `profil.json`.
-4. Permets aux profs d'envoyer un message au bot Profil (outil de messagerie entre agents, file de messages, webhook, ou simple fichier de comptes rendus).
+1. Crée 5 agents nommés « Grok Bot Academy - Bot Profil », « - Mathbot », « - Tuxbot », « - Secbot » et « - Langbot », en suivant le `README.md` de chaque dossier de `bots/` (prompt + 2 skills).
+2. Mets un dossier partagé lisible par tous (par exemple `academy/`), avec une copie de `shared/` (renomme `profil.example.*` en `profil.md` et `profil.json`).
+3. Donne au bot Profil seul le droit d'écrire dans `profil.md` et `profil.json` ; les profs peuvent seulement créer des fichiers dans `comptes-rendus/`.
+4. Permets aux profs d'envoyer un message au bot Profil (outil de messagerie entre agents, file de messages, webhook, ou simple fichier déposé dans `comptes-rendus/`).
 5. Lance le diagnostic avec le bot Profil, puis une séance avec un prof.
 
 Les prompts sont écrits pour des agents qui peuvent s'écrire entre eux. Si ta plateforme ne le
-permet pas, remplace l'envoi du compte rendu par l'écriture d'un fichier `comptes-rendus/` que le bot Profil relit.
+permet pas, remplace l'envoi du compte rendu par l'écriture d'un fichier dans `comptes-rendus/` (nom : `AAAA-MM-JJ-<bot>-<sujet>.md`) que le bot Profil relit. Mode dégradé : si un bot ou la messagerie manque, les autres continuent et le compte rendu est donné à l'apprenant.
+
+## Créer ton propre professeur
+
+Le **Builder Bot** (optionnel) t'interviewe (matière, public, niveau, langue, ton, exercices de validation), puis génère un prompt et deux skills de professeur compatibles avec le Bot Profil. Voir `bots/builder-bot/` et l'exemple `examples/guitarbot/`.
 
 ## Choix importants
 
